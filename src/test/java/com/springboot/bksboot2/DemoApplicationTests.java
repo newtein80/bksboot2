@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest // 사용법????? Test 가 skip 되는 이유?????
 public class DemoApplicationTests {
 
 	@Test
