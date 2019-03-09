@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 // @RunWith(SpringJUnit4ClassRunner.class)
 @RunWith(SpringRunner.class)
-// @SpringBootTest
+// @SpringBootTest --> main 클래스의 @SpringBootApplication 과 @SpringBootTest 의 관계와 사용법 ?????
 @ContextConfiguration(classes = Application.class)
 public class TestConfigTest {
 
