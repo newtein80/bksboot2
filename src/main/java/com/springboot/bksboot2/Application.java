@@ -5,6 +5,7 @@ import com.springboot.bksboot2.testservice.TestService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 // import org.springframework.boot.Banner.Mode;
 // import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -43,6 +44,8 @@ public class Application {
 		// app.setBanner(new MyBanner()); // resource 폴더 내의 txt 문서가 먼저임
 		// app.setBannerMode(Mode.OFF);;
 		app.addListeners(new TestListener());
+		// app.setWebApplicationType(WebApplicationType.SERVLET);
+		// app.setApplicationContextClass(applicationContextClass);
 		app.run(args);
 		// SpringApplication.run(Application.class, args);
 	}
