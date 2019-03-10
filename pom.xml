@@ -57,6 +57,18 @@
 					<excludeDevtools>false</excludeDevtools>
 				</configuration> -->
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<!-- <splashscreen-image>${image.name}</splashscreen-image> -->
+							<Implementation-Version>1.0.0</Implementation-Version>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

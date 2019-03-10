@@ -31,7 +31,10 @@ public class Application {
 	TestService testService;
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication app = new SpringApplication(Application.class);
+		// app.setBanner(new MyBanner()); // resource 폴더 내의 txt 문서가 먼저임
+		app.run(args);
+		// SpringApplication.run(Application.class, args);
 	}
 
 	@RequestMapping("/")
