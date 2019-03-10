@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.bind.annotation.RequestMapping;
 // import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestController;
 
 // @Import 사용법 ?????
 //@SpringBootApplication // 스프링 부트 가이드에서처럼 만들 수 없어서 주석 처리했더니 에러 발생하여 주석 삭제하였다.
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @SpringBootApplication // SpringBootApplication 클래스의 위치 기준으로 하위 클래스를 스캔하여 bean으로 등록 (SpringBootApplication 이 ComponentScan 을 포함???)
 // exclude 속성을 정의하여 제외 할 수도 있으며, properties 파일을 이용하여 제외 할 수도있음
 // @ImportResource("application.xml") // ImportResource 사용하여 xml 설정을 사용할 수 있음
+@RestController // 없을시 localhost:8080 할 경우 white??에러페이지로 감 // re-package 를 반드시 실행해야함?
 public class Application {
 
 	public static void main(String[] args) {

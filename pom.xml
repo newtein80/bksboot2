@@ -38,6 +38,12 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		
+		<!-- 캐싱을 disable 하여 재시작없이 개발사항이 반영됨. 그리고 패키징시에는 제외됨(<optional> property) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 	
 	<build>
