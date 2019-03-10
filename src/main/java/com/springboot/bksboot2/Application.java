@@ -5,6 +5,7 @@ import com.springboot.bksboot2.testservice.TestService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+// import org.springframework.boot.Banner.Mode;
 // import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 // import org.springframework.context.annotation.ComponentScan;
@@ -31,8 +32,17 @@ public class Application {
 	TestService testService;
 
 	public static void main(String[] args) {
+		// https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/api/org/springframework/boot/SpringApplication.html
+		// 1. Create an appropriate ApplicationContext instance (depending on your classpath)
+		// 2. Register a CommandLinePropertySource to expose command line arguments as Spring properties
+		// 3. Refresh the application context, loading all singleton beans
+		// 4. Trigger any CommandLineRunner beans
+		// ApplicationContext 는 빈을 관리 (= 빈은 ApplicationContext에 등록이되어야만 사용가능(???)), Listener는 빈이 될 수 없음?????
+		// ApplicationContext Events : https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-application-events-and-listeners
 		SpringApplication app = new SpringApplication(Application.class);
 		// app.setBanner(new MyBanner()); // resource 폴더 내의 txt 문서가 먼저임
+		// app.setBannerMode(Mode.OFF);;
+		app.addListeners(new TestListener());
 		app.run(args);
 		// SpringApplication.run(Application.class, args);
 	}

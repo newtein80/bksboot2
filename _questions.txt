@@ -7,3 +7,10 @@
 Reload vs Restart ?????
 
 spring-boot-devtool 과 restart 연관/동작 ?????
+
+ApplicationContext 는 빈을 관리 (= 빈은 ApplicationContext에 등록이되어야만 사용가능(???)), Listener는 빈이 될 수 없음 ?????
+- ApplicationContext 생성 전에 발생하는 이벤트도 존재하기 때문에...
+
+ApplicationContext Events 의 순서 ?????
+
+.addListener(new ListenerClass()) <-- 여러 개의 이벤트를 설정하고 싶을때 ?????
