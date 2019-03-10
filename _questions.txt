@@ -14,3 +14,7 @@ ApplicationContext 는 빈을 관리 (= 빈은 ApplicationContext에 등록이�
 ApplicationContext Events 의 순서 ?????
 
 .addListener(new ListenerClass()) <-- 여러 개의 이벤트를 설정하고 싶을때 ?????
+
+@Value("${hello:test}") <-- :test 부분을 넣지 않았을 경우 에러 발생 ?????
+
+Using the ApplicationRunner or CommandLineRunner ?????
