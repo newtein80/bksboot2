@@ -47,11 +47,15 @@
 		</dependency>
 	</dependencies>
 	
+	<!-- https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-devtools-remote -->
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!-- <configuration>
+					<excludeDevtools>false</excludeDevtools>
+				</configuration> -->
 			</plugin>
 		</plugins>
 	</build>
