@@ -39,6 +39,7 @@
 		</dependency>
 		
 		<!-- 캐싱을 disable 하여 재시작없이 개발사항이 반영됨. 그리고 패키징시에는 제외됨(<optional> property) -->
+		<!-- DevToolsPropertyDefaultsPostProcessor 에 상세 설정을 볼 수 있음 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
