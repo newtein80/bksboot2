@@ -18,3 +18,8 @@ ApplicationContext Events 의 순서 ?????
 @Value("${hello:test}") <-- :test 부분을 넣지 않았을 경우 에러 발생 ?????
 
 Using the ApplicationRunner or CommandLineRunner ?????
+
+return () -> 42; <-- 사용법 ?????
+
+org.springframework.boot.ExitCodeGenerator 사용법 ?????
+- https://www.baeldung.com/spring-boot-exit-codes
