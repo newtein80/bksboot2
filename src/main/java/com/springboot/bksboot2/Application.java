@@ -1,6 +1,9 @@
 package com.springboot.bksboot2;
 // 현재 위치가 root package
 
+import com.springboot.bksboot2.testservice.TestService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 // import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,13 +27,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController // 없을시 localhost:8080 할 경우 white??에러페이지로 감 // re-package 를 반드시 실행해야함?
 public class Application {
 
+	@Autowired
+	TestService testService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 
 	@RequestMapping("/")
 	public String home() {
-		return "hello world";
+		//return "hello world";
+		return testService.getMessage();
 	}
 
 }
