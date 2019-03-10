@@ -15,9 +15,4 @@ public class DemoApplicationTests {
 	public void testConfigWired() {
 		// application.xml 이 존재할 경우 @SpringBootApplication 에서 해당 파일을 읽어 bean 등록을 하게 되는데 이때 사용하지 않는 xml을 삭제해줘야 한다.
 	}
-
-	// @Test
-	// public void contextLoads() {
-	// }
-
 }
