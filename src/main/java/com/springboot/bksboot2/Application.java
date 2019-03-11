@@ -54,6 +54,7 @@ public class Application {
 		app.addListeners(new TestListener());
 		// app.setWebApplicationType(WebApplicationType.SERVLET);
 		// app.setApplicationContextClass(applicationContextClass);
+		// app.setAddCommandLineProperties(false); // CommandLineProperties(ex. --foo=fooValue) 무시
 		app.run(args);
 		// SpringApplication.run(Application.class, args);
 

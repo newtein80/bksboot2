@@ -27,22 +27,33 @@ public class TestService {
      * null로 해두면 "null" 이라는 문자열이 기본값으로 주입되며, @null로 해둔경우 null값이 들어값니다.
      * 출처: https://dololak.tistory.com/545 [코끼리를 냉장고에 넣는 방법]
      */
-    @Value("${hello:test}") // :test 부분을 넣지 않았을 경우 에러 발생 ?????
+    @Value("${hello:hello_default}") // :test 부분을 넣지 않았을 경우 에러 발생 ?????
     String[] varTestValues;
 
-    @Value("${foo:fooTest}") // :test 부분을 넣지 않았을 경우 에러 발생 ?????
+    @Value("${foo:foo_default}") // :test 부분을 넣지 않았을 경우 에러 발생 ?????
     String varFooValues;
 
     /**
-     * java -jar target/bksboot2-0.0.1-SNAPSHOT.jar --hello=hello --hello=world
+     * application.properties 에서 주어진 값. commandline 의 argument 값이 우선시 된다.
+     * VM options : -D... 로 시작하는 argument
+     * Enviroment variables : --...로 시작하는 argument
+     */
+    @Value("${name:name_default}")
+    String varName;
+
+    /**
+     * java -jar target/bksboot2-0.0.1-SNAPSHOT.jar --hello=hello --foo=world --name=commandName
+     * Order 1. $ java -jar myapp.jar --spring.application.json='{"name":"test"}'
+     * Order 2. $ java -Dspring.application.json='{"name":"test"}' -jar myapp.jar
+     * Order 3. $ SPRING_APPLICATION_JSON='{"acme":{"name":"test"}}' java -jar myapp.jar
      * @return --hello=Hello -hello=World => ["Hello", "World"] => "Hello,World"
      */
     public String getMessage() {
 
         // List<String> testArgsValues = arguments.getOptionValues("hello");
         // return testArgsValues.stream().collect(Collectors.joining(","));
-        String strRtn = Arrays.stream(varTestValues).collect(Collectors.joining(","));
-        strRtn += " " + varFooValues;
+        String strRtn = "Hello = " + Arrays.stream(varTestValues).collect(Collectors.joining(","));
+        strRtn += ", Foo = " + varFooValues + ", Name = " + varName;
         return strRtn;
 
         // return "test service ver3";

@@ -23,3 +23,9 @@ return () -> 42; <-- 사용법 ?????
 
 org.springframework.boot.ExitCodeGenerator 사용법 ?????
 - https://www.baeldung.com/spring-boot-exit-codes
+
+SPRING_APPLICATION_JSON <-- not working ?????
+
+Spring Enviroment ?????
+
+properties 파일의 이름(spring.config.name) 또는 경로(spring.config.location)를 사용하는 상황 ?????
