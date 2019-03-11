@@ -7,8 +7,13 @@
 # ---
 spring:
     profiles: default
-parkjs:
+testproperties:
     name: park_yml_profile_default
+    pojoList:
+        - name: pojo1_name_default
+          desc: pojo1_desc_default
+        - name: pojo2_name_default
+          desc: pojo2_desc_default
 # spring.output.ansi.enabled=always ?????
 # output:
 #     ansi:
@@ -16,10 +21,20 @@ parkjs:
 ---
 spring:
     profiles: prod
-parkjs:
+testproperties:
     name: park_yml_profile_prod
+    pojoList:
+        - name: pojo1_name_prod
+          desc: pojo1_desc_prod
+        - name: pojo2_name_prod
+          desc: pojo2_desc_prod
+        - name: pojo2_name_prod
+          desc: pojo2_desc_prod
 ---
 spring:
     profiles: dev
-parkjs:
+testproperties:
     name: park_yml_profile_dev
+    pojoList:
+        - name: pojo1_name_dev
+          desc: pojo1_desc_dev

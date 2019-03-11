@@ -1,13 +1,13 @@
 package com.springboot.bksboot2.testservice;
 
 import java.util.Arrays;
+import java.util.List;
 // import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
-
 // import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Service;
@@ -45,6 +45,13 @@ public class TestService {
     @Value("${parkjs.name:yml_default}")
     String varYmlName;
 
+    // 왜 안되는가 ?????
+    // @Value("${myPojo}")
+    // List<MyPojo> myPojoList;
+
+    @Autowired
+    MyPojoProperties myPojoProperties;
+
     /**
      * java -jar target/bksboot2-0.0.1-SNAPSHOT.jar --hello=hello --foo=world --name=commandName
      * Order 1. $ java -jar myapp.jar --spring.application.json='{"name":"test"}'
@@ -58,6 +65,8 @@ public class TestService {
         // return testArgsValues.stream().collect(Collectors.joining(","));
         String strRtn = "hello = " + Arrays.stream(varTestValues).collect(Collectors.joining(","));
         strRtn += "    , foo = " + varFooValues + "    , name = " + varName + "    , parkjs.name = " + varYmlName;
+        //strRtn += "    , myPojo count = " + myPojoList.size();
+        strRtn += "    , myPojoProperties count = " + myPojoProperties.getPojoList().size();
         return strRtn;
 
         // return "test service ver3";

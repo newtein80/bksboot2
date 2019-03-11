@@ -10,7 +10,9 @@ import org.springframework.boot.SpringApplication;
 // import org.springframework.boot.Banner.Mode;
 // import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
 // import org.springframework.context.annotation.ComponentScan;
 // import org.springframework.boot.autoconfigure.SpringBootApplication;
 // import org.springframework.context.annotation.Configuration;
@@ -29,10 +31,14 @@ import org.springframework.web.bind.annotation.RestController;
 // exclude 속성을 정의하여 제외 할 수도 있으며, properties 파일을 이용하여 제외 할 수도있음
 // @ImportResource("application.xml") // ImportResource 사용하여 xml 설정을 사용할 수 있음
 @RestController // 없을시 localhost:8080 할 경우 white??에러페이지로 감 // re-package 를 반드시 실행해야함?
+@EnableConfigurationProperties
 public class Application {
 
 	@Autowired
 	TestService testService;
+
+	@Autowired
+	Environment evn;
 
 	@Bean
 	public ExitCodeGenerator exitCodeGenerator() {
@@ -64,6 +70,8 @@ public class Application {
 	@RequestMapping("/")
 	public String home() {
 		//return "hello world";
+		System.out.println(evn.getProperty("testproperties.pojoList"));
+		System.out.println(evn.getProperty("testproperties.name"));
 		return testService.getMessage();
 	}
 
