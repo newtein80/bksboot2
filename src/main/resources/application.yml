@@ -1,0 +1,25 @@
+# If none are explicitly active when the application context starts, the default profiles are activated.
+# So, in the following YAML, we set a value for spring.security.user.password that is available only in the "default" profile
+# https://www.mkyong.com/spring/spring-propertysources-example/
+# parkjs:
+# # 반드시 클론(:)뒤에 스페이스바를 넣어줘야함.(어짜피 내부적으로 .yml -> .properties 형식으로 변환한다.)
+#     name: park_yml_profile_none
+# ---
+spring:
+    profiles: default
+parkjs:
+    name: park_yml_profile_default
+# spring.output.ansi.enabled=always ?????
+# output:
+#     ansi:
+#         enabled: always
+---
+spring:
+    profiles: prod
+parkjs:
+    name: park_yml_profile_prod
+---
+spring:
+    profiles: dev
+parkjs:
+    name: park_yml_profile_dev

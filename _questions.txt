@@ -29,3 +29,9 @@ SPRING_APPLICATION_JSON <-- not working ?????
 Spring Enviroment ?????
 
 properties 파일의 이름(spring.config.name) 또는 경로(spring.config.location)를 사용하는 상황 ?????
+
+YAML Shortcomings ?????
+
+application.properties 파일과 application.yml 파일이 동시에 있을 경우 어떤가 ?????
+
+yml 파일에서 spring.output.ansi.enabled=always 설정하는 방법 ?????

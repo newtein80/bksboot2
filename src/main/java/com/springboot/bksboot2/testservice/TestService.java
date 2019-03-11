@@ -41,6 +41,10 @@ public class TestService {
     @Value("${name:name_default}")
     String varName;
 
+    // .properties 파일이 있을 경우 우선순위에 따라 값이 정해진다.
+    @Value("${parkjs.name:yml_default}")
+    String varYmlName;
+
     /**
      * java -jar target/bksboot2-0.0.1-SNAPSHOT.jar --hello=hello --foo=world --name=commandName
      * Order 1. $ java -jar myapp.jar --spring.application.json='{"name":"test"}'
@@ -52,8 +56,8 @@ public class TestService {
 
         // List<String> testArgsValues = arguments.getOptionValues("hello");
         // return testArgsValues.stream().collect(Collectors.joining(","));
-        String strRtn = "Hello = " + Arrays.stream(varTestValues).collect(Collectors.joining(","));
-        strRtn += ", Foo = " + varFooValues + ", Name = " + varName;
+        String strRtn = "hello = " + Arrays.stream(varTestValues).collect(Collectors.joining(","));
+        strRtn += "    , foo = " + varFooValues + "    , name = " + varName + "    , parkjs.name = " + varYmlName;
         return strRtn;
 
         // return "test service ver3";

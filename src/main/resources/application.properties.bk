@@ -24,6 +24,8 @@ spring.output.ansi.enabled=always
 # project의 directory에도 application.properties 가 존재 할 수 있다. application.properties가 resource 폴더(2)와 project's directory(1) 에 둘 다 존재 할 때 각각의 우선순위가 있다.
 # command line argument로 properties 파일의 이름(spring.config.name) 또는 경로(spring.config.location)를 줄 수 있다. (우선순위가 높다.)
 
+# https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/PropertySource.html
+
 # foo=${random.uuid}
 foo=propertyFoo
 name=AddFoo ${foo}
