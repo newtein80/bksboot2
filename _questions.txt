@@ -39,3 +39,5 @@ yml 파일에서 spring.output.ansi.enabled=always 설정하는 방법 ?????
 Document 24.8 ~ 24.8.3 사이의 설명 ?????
 
 https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#boot-features-external-config-vs-value ?????
+
+@Validated, @Valid 활용 ?????

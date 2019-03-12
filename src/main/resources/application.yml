@@ -10,6 +10,10 @@
 spring:
     profiles: default
 testproperties:
+    time1: 1000
+    time2: PT10H
+    time3: 10s
+    number1: 10
     work-for: home_default
     whereToGo: where_to_go_default
     foo_bar: foobar_default

@@ -15,6 +15,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 // import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
+import org.springframework.validation.annotation.Validated;
 // import org.springframework.context.annotation.ComponentScan;
 // import org.springframework.boot.autoconfigure.SpringBootApplication;
 // import org.springframework.context.annotation.Configuration;
@@ -49,8 +50,10 @@ public class Application {
 	}
 
 	// MyPojoProperties 가 다른 third party 라이브러리의 클래스라고 가정할 때 다음과 같이 properties 빈으로 사용 할 수있음
+	// https://github.com/spring-projects/spring-boot/tree/v2.1.3.RELEASE/spring-boot-samples/spring-boot-sample-property-validation
 	@Bean
 	@ConfigurationProperties("testproperties")
+	@Validated // @ConfigurationProperties 와 같이 다녀야 한다.
 	public MyPojoProperties myPojoProperties(){
 		return new MyPojoProperties();
 	}
@@ -85,6 +88,9 @@ public class Application {
 		System.out.println("*** work-for : " + myPojoProperties().getWorkFor());
 		System.out.println("*** whereToGo : " + myPojoProperties().getWhereToGo());
 		System.out.println("*** foo_bar : " + myPojoProperties().getFooBar());
+		System.out.println("*** time1 : " + myPojoProperties().getTime1());
+		System.out.println("*** time2 : " + myPojoProperties().getTime2());
+		System.out.println("*** time3 : " + myPojoProperties().getTime3());
 		return testService.getMessage();
 	}
 

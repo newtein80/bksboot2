@@ -1,6 +1,11 @@
 package com.springboot.bksboot2.testservice;
 
+import java.time.Duration;
 import java.util.List;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 // import org.springframework.boot.context.properties.ConfigurationProperties;
 // import org.springframework.stereotype.Component;
@@ -12,6 +17,7 @@ import java.util.List;
 // @ConfigurationProperties("testproperties") // @SpringBootApplication annotation이 있는 클래스에서도 사용하여 properties 클래스 빈으로 등록가능
 public class MyPojoProperties {
 
+    @NotEmpty
     private String name;
 
     private List<MyPojo> pojoList;
@@ -21,6 +27,16 @@ public class MyPojoProperties {
     private String whereToGo;
 
     private String fooBar;
+    
+    private Duration time1; // 1000 ms --> PT1S
+
+    private Duration time2; // 10 hr --> PT10H
+
+    private Duration time3; // 10 s --> PT10S
+
+    @Min(0)
+    @Max(100)
+    private int number1;
 
     /**
      * @return the name
@@ -90,6 +106,62 @@ public class MyPojoProperties {
      */
     public void setFooBar(String fooBar) {
         this.fooBar = fooBar;
+    }
+
+    /**
+     * @return the time1
+     */
+    public Duration getTime1() {
+        return time1;
+    }
+
+    /**
+     * @param time1 the time1 to set
+     */
+    public void setTime1(Duration time1) {
+        this.time1 = time1;
+    }
+
+    /**
+     * @return the time2
+     */
+    public Duration getTime2() {
+        return time2;
+    }
+
+    /**
+     * @param time2 the time2 to set
+     */
+    public void setTime2(Duration time2) {
+        this.time2 = time2;
+    }
+
+    /**
+     * @return the time3
+     */
+    public Duration getTime3() {
+        return time3;
+    }
+
+    /**
+     * @param time3 the time3 to set
+     */
+    public void setTime3(Duration time3) {
+        this.time3 = time3;
+    }
+
+    /**
+     * @return the number1
+     */
+    public int getNumber1() {
+        return number1;
+    }
+
+    /**
+     * @param number1 the number1 to set
+     */
+    public void setNumber1(int number1) {
+        this.number1 = number1;
     }
     
 }
