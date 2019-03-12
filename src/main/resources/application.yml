@@ -14,6 +14,7 @@ testproperties:
     time2: PT10H
     time3: 10s
     number1: 10
+    number2: ${testproperties.time1}
     work-for: home_default
     whereToGo: where_to_go_default
     foo_bar: foobar_default

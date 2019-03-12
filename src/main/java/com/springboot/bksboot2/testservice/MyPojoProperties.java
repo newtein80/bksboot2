@@ -38,6 +38,8 @@ public class MyPojoProperties {
     @Max(100)
     private int number1;
 
+    private int number2;
+
     /**
      * @return the name
      */
@@ -162,6 +164,20 @@ public class MyPojoProperties {
      */
     public void setNumber1(int number1) {
         this.number1 = number1;
+    }
+
+    /**
+     * @return the number2
+     */
+    public int getNumber2() {
+        return number2;
+    }
+
+    /**
+     * @param number2 the number2 to set
+     */
+    public void setNumber2(int number2) {
+        this.number2 = number2;
     }
     
 }

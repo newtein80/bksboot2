@@ -51,6 +51,7 @@ public class Application {
 
 	// MyPojoProperties 가 다른 third party 라이브러리의 클래스라고 가정할 때 다음과 같이 properties 빈으로 사용 할 수있음
 	// https://github.com/spring-projects/spring-boot/tree/v2.1.3.RELEASE/spring-boot-samples/spring-boot-sample-property-validation
+	// https://blog.outsider.ne.kr/835
 	@Bean
 	@ConfigurationProperties("testproperties")
 	@Validated // @ConfigurationProperties 와 같이 다녀야 한다.
@@ -91,6 +92,7 @@ public class Application {
 		System.out.println("*** time1 : " + myPojoProperties().getTime1());
 		System.out.println("*** time2 : " + myPojoProperties().getTime2());
 		System.out.println("*** time3 : " + myPojoProperties().getTime3());
+		System.out.println("*** nubmer2 : " + myPojoProperties().getNumber2());
 		return testService.getMessage();
 	}
 
