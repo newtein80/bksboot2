@@ -1,7 +1,9 @@
 package com.springboot.bksboot2;
 // 현재 위치가 root package
 
+import com.springboot.bksboot2.testservice.ITestBean;
 import com.springboot.bksboot2.testservice.MyPojoProperties;
+import com.springboot.bksboot2.testservice.TestProfileBeanDev;
 import com.springboot.bksboot2.testservice.TestService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 // import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.validation.annotation.Validated;
 // import org.springframework.context.annotation.ComponentScan;
@@ -43,6 +46,9 @@ public class Application {
 
 	@Autowired
 	Environment evn;
+
+	@Autowired
+	ITestBean iTestBean;
 
 	@Bean // 빈 등록이 가능한 이유는 @SpringBootApplication이 @Configuration 을 포함하고 있기때문에 등록 가능하다.
 	public ExitCodeGenerator exitCodeGenerator() {
@@ -74,6 +80,7 @@ public class Application {
 		app.addListeners(new TestListener());
 		// app.setWebApplicationType(WebApplicationType.SERVLET);
 		// app.setApplicationContextClass(applicationContextClass);
+		// app.setAdditionalProfiles(profiles); // <-- profile 설정 가능
 		// app.setAddCommandLineProperties(false); // CommandLineProperties(ex. --foo=fooValue) 무시
 		app.run(args);
 		// SpringApplication.run(Application.class, args);
@@ -93,6 +100,11 @@ public class Application {
 		System.out.println("*** time2 : " + myPojoProperties().getTime2());
 		System.out.println("*** time3 : " + myPojoProperties().getTime3());
 		System.out.println("*** nubmer2 : " + myPojoProperties().getNumber2());
+		System.out.println("*** profile bean : " + iTestBean.getMessage());
+
+		// ConfigurableEnvironment configurableEnvironment = (ConfigurableEnvironment) evn;
+		// configurableEnvironment.setActiveProfiles("dev"); // 다음과 같이 사용가능
+
 		return testService.getMessage();
 	}
 

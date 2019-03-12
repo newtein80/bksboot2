@@ -5,13 +5,23 @@
 # # 반드시 클론(:)뒤에 스페이스바를 넣어줘야함.(어짜피 내부적으로 .yml -> .properties 형식으로 변환한다.)
 #     name: park_yml_profile_none
 # ---
+# https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#howto-change-configuration-depending-on-the-environment
 
-# Relaxed binding 
+# Relaxed binding
+
+# application.yml 의 spring.profiles.active 보다 commandlineargs의 '--spring.profiles.active'가 우선순위가 더 높다. (commandlineargs > application.yml)
 spring:
-    profiles: default
+    profiles:
+      active: prod
     output:
       ansi:
           enabled: ALWAYS
+---
+spring:
+    profiles: default
+    # output:
+    #   ansi:
+    #       enabled: ALWAYS
 testproperties:
     time1: 1000
     time2: PT10H
@@ -35,19 +45,35 @@ testproperties:
 spring:
     profiles: prod
 testproperties:
+    time1: 9000
+    time2: PT90H
+    time3: 90s
+    number1: 90
+    number2: ${testproperties.time1}
+    work-for: home_prod
+    whereToGo: where_to_go_prod
+    foo_bar: foobar_prod
     name: park_yml_profile_prod
     pojoList:
         - name: pojo1_name_prod
           desc: pojo1_desc_prod
         - name: pojo2_name_prod
           desc: pojo2_desc_prod
-        - name: pojo2_name_prod
-          desc: pojo2_desc_prod
 ---
 spring:
     profiles: dev
 testproperties:
+    time1: 3000
+    time2: PT30H
+    time3: 30s
+    number1: 30
+    number2: ${testproperties.time1}
+    work-for: home_dev
+    whereToGo: where_to_go_dev
+    foo_bar: foobar_dev
     name: park_yml_profile_dev
     pojoList:
         - name: pojo1_name_dev
           desc: pojo1_desc_dev
+        - name: pojo2_name_dev
+          desc: pojo2_desc_dev
