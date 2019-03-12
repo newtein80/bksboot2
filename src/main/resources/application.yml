@@ -5,9 +5,14 @@
 # # 반드시 클론(:)뒤에 스페이스바를 넣어줘야함.(어짜피 내부적으로 .yml -> .properties 형식으로 변환한다.)
 #     name: park_yml_profile_none
 # ---
+
+# Relaxed binding 
 spring:
     profiles: default
 testproperties:
+    work-for: home_default
+    whereToGo: where_to_go_default
+    foo_bar: foobar_default
     name: park_yml_profile_default
     pojoList:
         - name: pojo1_name_default
@@ -17,7 +22,7 @@ testproperties:
 # spring.output.ansi.enabled=always ?????
 # output:
 #     ansi:
-#         enabled: always
+#         enabled: always ?????
 ---
 spring:
     profiles: prod

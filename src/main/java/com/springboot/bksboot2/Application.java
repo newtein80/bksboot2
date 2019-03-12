@@ -1,6 +1,7 @@
 package com.springboot.bksboot2;
 // 현재 위치가 root package
 
+import com.springboot.bksboot2.testservice.MyPojoProperties;
 import com.springboot.bksboot2.testservice.TestService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 // import org.springframework.boot.Banner.Mode;
 // import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 // import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
@@ -41,9 +43,16 @@ public class Application {
 	@Autowired
 	Environment evn;
 
-	@Bean
+	@Bean // 빈 등록이 가능한 이유는 @SpringBootApplication이 @Configuration 을 포함하고 있기때문에 등록 가능하다.
 	public ExitCodeGenerator exitCodeGenerator() {
 		return () -> 42;
+	}
+
+	// MyPojoProperties 가 다른 third party 라이브러리의 클래스라고 가정할 때 다음과 같이 properties 빈으로 사용 할 수있음
+	@Bean
+	@ConfigurationProperties("testproperties")
+	public MyPojoProperties myPojoProperties(){
+		return new MyPojoProperties();
 	}
 
 	public static void main(String[] args) {
@@ -73,6 +82,9 @@ public class Application {
 		//return "hello world";
 		System.out.println(evn.getProperty("testproperties.pojoList[0].name"));
 		System.out.println(evn.getProperty("testproperties.name"));
+		System.out.println("*** work-for : " + myPojoProperties().getWorkFor());
+		System.out.println("*** whereToGo : " + myPojoProperties().getWhereToGo());
+		System.out.println("*** foo_bar : " + myPojoProperties().getFooBar());
 		return testService.getMessage();
 	}
 
