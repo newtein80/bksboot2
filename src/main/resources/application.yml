@@ -9,6 +9,9 @@
 # Relaxed binding 
 spring:
     profiles: default
+    output:
+      ansi:
+          enabled: ALWAYS
 testproperties:
     time1: 1000
     time2: PT10H
